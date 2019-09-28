@@ -10,11 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
+    let game = Calculation.self
+    
+    @IBOutlet weak var outlet: UILabel!
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        // Do any additional setup after loading the view.
+//    }
+    
+    var numOfSum = 0 { didSet { outlet.text = "\(numOfSum)" } }
+    
+    
 
 }
 
