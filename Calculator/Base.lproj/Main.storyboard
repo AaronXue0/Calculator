@@ -104,6 +104,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="10e-wZ-tXQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3cJ-cB-XQf">
                                 <rect key="frame" x="105" y="359" width="100" height="100"/>
@@ -121,6 +124,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k7h-Kd-c6M"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vvl-BM-4BY">
                                 <rect key="frame" x="210" y="359" width="100" height="100"/>
@@ -137,6 +143,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Sh-Xu-o7W"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VFR-Ad-0m4">
                                 <rect key="frame" x="314" y="359" width="100" height="100"/>
@@ -153,6 +162,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wgm-dP-aoy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7W-4M-YlT">
                                 <rect key="frame" x="314" y="463" width="100" height="100"/>
@@ -169,6 +181,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xpn-40-Uu8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEL-p0-enq">
                                 <rect key="frame" x="314" y="670" width="100" height="100"/>
@@ -185,6 +200,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M8a-HB-VUZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmQ-e0-fYn">
                                 <rect key="frame" x="314" y="773" width="100" height="100"/>
@@ -201,6 +219,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="42q-46-bsa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2g-ox-Zkx">
                                 <rect key="frame" x="314" y="566" width="100" height="100"/>
@@ -217,6 +238,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="btnOpeator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lTE-3i-UEo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ceu-Am-ftE">
                                 <rect key="frame" x="105" y="463" width="100" height="100"/>
@@ -237,6 +261,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="btnCalculator" destination="tc8-7a-JP2" id="Gy1-0w-Tea"/>
                         <outlet property="outlet" destination="B7g-GK-9ch" id="qfG-a1-QET"/>
                         <outlet property="view" destination="tc8-7a-JP2" id="rGk-i2-IFZ"/>
                     </connections>
