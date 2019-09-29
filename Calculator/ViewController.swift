@@ -18,10 +18,18 @@ class ViewController: UIViewController {
 
     var numOfSum = 0 { didSet { outlet.text = "\(numOfSum)" } }
     
-    @IBAction func btnOpeator(_ sender: Any) {
+    @IBOutlet var numButtons: [UIButton]!
+
+    @IBAction func touchNum(_ sender: UIButton) {
+        if let txtNumber = numButtons.firstIndex(of: sender){
+            numOfSum = txtNumber
+        }
     }
     
-    
+    //    if let cardNumber = cardButtons.firstIndex(of: sender) {
+//        game.chooseCard(at: cardNumber)
+//        updateViewFromModel()
+//    }
     
     
 
