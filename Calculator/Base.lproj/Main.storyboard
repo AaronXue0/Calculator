@@ -82,6 +82,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="touchOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Dk-P1-R21"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7W-4M-YlT">
                                 <rect key="frame" x="314" y="463" width="100" height="100"/>
@@ -98,6 +101,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="touchOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dOG-mR-Pxv"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OEL-p0-enq">
                                 <rect key="frame" x="314" y="670" width="100" height="100"/>
@@ -133,6 +139,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="touchOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XlI-xR-YeA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2g-ox-Zkx">
                                 <rect key="frame" x="314" y="566" width="100" height="100"/>
@@ -149,6 +158,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="touchOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jcc-xP-DxT"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1Z-5x-a85">
                                 <rect key="frame" x="0.0" y="773" width="205" height="100"/>
@@ -282,6 +294,10 @@
                         <outletCollection property="numButtons" destination="Ceu-Am-ftE" collectionClass="NSMutableArray" id="s88-Zl-9Fl"/>
                         <outletCollection property="numButtons" destination="O1y-Lq-aRS" collectionClass="NSMutableArray" id="rFy-Xk-gNb"/>
                         <outletCollection property="opeatorButton" destination="OEL-p0-enq" collectionClass="NSMutableArray" id="qey-Ti-Df8"/>
+                        <outletCollection property="opeatorButton" destination="p2g-ox-Zkx" collectionClass="NSMutableArray" id="hEE-Bg-szK"/>
+                        <outletCollection property="opeatorButton" destination="O7W-4M-YlT" collectionClass="NSMutableArray" id="u2q-If-sOb"/>
+                        <outletCollection property="opeatorButton" destination="VFR-Ad-0m4" collectionClass="NSMutableArray" id="ZGJ-TQ-5JT"/>
+                        <outletCollection property="opeatorButton" destination="cmQ-e0-fYn" collectionClass="NSMutableArray" id="bN9-kM-x3k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

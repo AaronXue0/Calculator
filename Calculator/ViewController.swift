@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     
     lazy var controller = Calculator()
     
+    var opCodeRecord = 4
+    
     @IBOutlet weak var outlet: UILabel!
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
@@ -39,18 +41,34 @@ class ViewController: UIViewController {
         controller.reset = true
         if let opCode = opeatorButton.firstIndex(of: sender){
             controller.recordNumber = Double(Int(numOfLabel)!)
-            switch opCode{
-            case 0:controller.addition(
-                num1: Int(controller.recordNumber),
-                num2: Int(controller.numOfSum))
-            default:
-                print("error")
-            }
-            numOfLabel = String(Int(controller.numOfSum))
-            print(numOfLabel,controller.numOfSum)
+            calculate()
+            opCodeRecord = opCode
         }
+        numOfLabel = String(Int(controller.numOfSum))
+        print(controller.numOfSum)
     }
 
+    func calculate(){
+        switch opCodeRecord{
+        case 0:controller.addition(
+            num1: Int(controller.numOfSum),
+            num2: Int(controller.recordNumber))
+        case 1:controller.subtraction(
+            num1: Int(controller.numOfSum),
+            num2: Int(controller.recordNumber))
+        case 2:controller.multiplication(
+            num1: Int(controller.numOfSum),
+            num2: Int(controller.recordNumber))
+        case 3:controller.division(
+            num1: Int(controller.numOfSum),
+            num2: Int(controller.recordNumber))
+        case 4:controller.equal(num1: Int(controller.recordNumber))
+        default:
+            numOfLabel = String(Int(controller.recordNumber))
+        }
+        
+    }
+    
     func changeDisplayOfLabel(number: Int){
         if(controller.reset == true){
             controller.reset = false
