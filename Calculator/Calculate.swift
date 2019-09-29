@@ -11,7 +11,6 @@ import Foundation
 struct Calculator{
     var reset: Bool
     var recordNumber: Double
-    var operation: Double
     var numOfSum: Double
     
     mutating func equal(num1: Int)
@@ -40,7 +39,6 @@ struct Calculator{
     init(){
         reset = false
         recordNumber = 0
-        operation = 0
         numOfSum = 0
     }
 }

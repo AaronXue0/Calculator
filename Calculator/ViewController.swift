@@ -13,39 +13,34 @@ class ViewController: UIViewController {
     lazy var controller = Calculator()
     
     var opCodeRecord = 4
+    var pin = 0
     
     @IBOutlet weak var outlet: UILabel!
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view.
-//    }
 
     var numOfLabel = "0" { didSet { outlet.text = "\(numOfLabel)" } }
     
     @IBOutlet var numButtons: [UIButton]!
 
     @IBAction func touchNum(_ sender: UIButton) {
+        pin = 0
         if let txtNumber = numButtons.firstIndex(of: sender){
-            if controller.operation > 0{
-                controller.recordNumber = Double(txtNumber)
-            }else{
-                changeDisplayOfLabel(number: txtNumber)
-            }
+            changeDisplayOfLabel(number: txtNumber)
         }
-        
     }
     
     @IBOutlet var opeatorButton: [UIButton]!
     
     @IBAction func touchOperator(_ sender: UIButton) {
         controller.reset = true
-        if let opCode = opeatorButton.firstIndex(of: sender){
-            controller.recordNumber = Double(Int(numOfLabel)!)
+        controller.recordNumber = Double(Int(numOfLabel)!)
+        if pin == 0{
             calculate()
+        }
+        if let opCode = opeatorButton.firstIndex(of: sender){
             opCodeRecord = opCode
+            pin = 1
         }
         numOfLabel = String(Int(controller.numOfSum))
-        print(controller.numOfSum)
     }
 
     func calculate(){
