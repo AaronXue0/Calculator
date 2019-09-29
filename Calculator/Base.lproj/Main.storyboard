@@ -114,6 +114,9 @@
                                         </fragment>
                                     </attributedString>
                                 </state>
+                                <connections>
+                                    <action selector="touchOperator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fRg-ZB-5ko"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cmQ-e0-fYn">
                                 <rect key="frame" x="314" y="773" width="100" height="100"/>
@@ -278,6 +281,7 @@
                         <outletCollection property="numButtons" destination="W0Z-7Y-emU" collectionClass="NSMutableArray" id="YWp-W3-xXa"/>
                         <outletCollection property="numButtons" destination="Ceu-Am-ftE" collectionClass="NSMutableArray" id="s88-Zl-9Fl"/>
                         <outletCollection property="numButtons" destination="O1y-Lq-aRS" collectionClass="NSMutableArray" id="rFy-Xk-gNb"/>
+                        <outletCollection property="opeatorButton" destination="OEL-p0-enq" collectionClass="NSMutableArray" id="qey-Ti-Df8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
