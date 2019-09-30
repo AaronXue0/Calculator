@@ -17,7 +17,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var outlet: UILabel!
 
-    var numOfLabel = "0" { didSet { outlet.text = "\(numOfLabel)" } }
+    var numOfLabel = "0" {
+        didSet {
+            outlet.text = "\(numOfLabel)"
+        }
+    }
     
     @IBOutlet var numButtons: [UIButton]!
 
@@ -74,6 +78,15 @@ class ViewController: UIViewController {
         }else{
             numOfLabel += String(number)
         }
+    }
+    
+    
+    @IBAction func clear(_ sender: UIButton) {
+        opCodeRecord = 4
+        pin = 0
+        numOfLabel =  "0"
+        controller.numOfSum = 0
+        controller.recordNumber = 0
     }
 }
 
