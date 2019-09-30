@@ -8,22 +8,38 @@
 
 import Foundation
 
-enum Calculation {
-    case Addition(Double,Double),
-         Subtraction(num1:Double,num2:Double),
-         Multiplication(num1:Double,num2:Double),
-         Division(num1:Double,num2:Double)
+struct Calculator{
+    var reset: Bool
+    var recordNumber: Double
+    var numOfSum: Double
     
-    func Calculate() -> Double {
-        switch self {
-        case let .Addition(number1,number2):
-            return number1 + number2
-        case let .Subtraction(number1,number2):
-            return number1 - number2
-        case let .Multiplication(number1,number2):
-            return number1 * number2
-        case let .Division(number1,number2):
-            return number1 / number2
+    mutating func equal(num1: Int)
+    {
+        numOfSum = Double(num1)
+    }
+    mutating func addition(num1: Int,num2: Int)
+    {
+        numOfSum = Double(num1 + num2)
+    }
+    mutating func subtraction(num1: Int,num2: Int)
+    {
+        numOfSum = Double(num1 - num2)
+    }
+    mutating func multiplication(num1: Int,num2: Int)
+    {
+        numOfSum = Double(num1 * num2)
+    }
+    mutating func division(num1: Int,num2: Int)
+    {
+        if num2 != 0 {
+            numOfSum = Double(num1 / num2)
         }
     }
+    
+    init(){
+        reset = false
+        recordNumber = 0
+        numOfSum = 0
+    }
 }
+
