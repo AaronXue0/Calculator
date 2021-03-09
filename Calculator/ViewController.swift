@@ -12,24 +12,48 @@ class ViewController: UIViewController {
     
     lazy var controller = Calculator()
     
-    var opCodeRecord = 4
     var pin = 0
+    var opCodeRecord = 4
+    var opCodeRecordArray = [String]()
     
     @IBOutlet weak var outlet: UILabel!
-
+    @IBOutlet weak var calculatorResult: UILabel!
+    
     var numOfLabel = "0" {
         didSet {
             outlet.text = "\(numOfLabel)"
         }
     }
     
+    var procceeding = "" {
+        didSet {
+            calculatorResult.text = "\(procceeding)"
+        }
+    }
+    
     @IBOutlet var numButtons: [UIButton]!
 
     @IBAction func touchNum(_ sender: UIButton) {
-        pin = 0
-        if let txtNumber = numButtons.firstIndex(of: sender){
-            changeDisplayOfLabel(number: txtNumber)
+        if(opCodeRecord == -1){
+            opCodeRecord = 4
+            resetCal()
         }
+        
+        pin = 0
+        
+        if let txtNumber = numButtons.firstIndex(of: sender){
+            changeDisplayOfResult(text: String(txtNumber))
+        }
+    }
+    
+    @IBAction func touchPoit(_ sender: Any) {
+        if(pin == 2) {
+            return
+        }
+        
+        procceeding = procceeding + "."
+        
+        pin = 2
     }
     
     @IBOutlet var opeatorButton: [UIButton]!
@@ -37,38 +61,51 @@ class ViewController: UIViewController {
     @IBAction func touchOperator(_ sender: UIButton) {
         controller.reset = true
         controller.recordNumber = Double(Int(numOfLabel)!)
-        if pin == 0{
-            calculate()
-        }
         if let opCode = opeatorButton.firstIndex(of: sender){
             opCodeRecord = opCode
+            
+            if(opCodeRecord != 4 && pin == 1){
+                procceeding.removeLast()
+            }
             pin = 1
+            switch opCodeRecord {
+            case 0:
+                opCodeRecordArray.append("+")
+                procceeding = procceeding + "+"
+            case 1:
+                opCodeRecordArray.append("-")
+                procceeding = procceeding + "-"
+            case 2:
+                opCodeRecordArray.append("*")
+                procceeding = procceeding + "*"
+            case 3:
+                opCodeRecordArray.append("/")
+                procceeding = procceeding + "/"
+            case 4:
+                opCodeRecord = -1
+                procceeding = procceeding + "="
+                calculate()
+            default:
+                return;
+            }
         }
-        numOfLabel = String(Int(controller.numOfSum))
     }
 
     func calculate(){
-        switch opCodeRecord{
-        case 0:controller.addition(
-            num1: Int(controller.numOfSum),
-            num2: Int(controller.recordNumber))
-        case 1:controller.subtraction(
-            num1: Int(controller.numOfSum),
-            num2: Int(controller.recordNumber))
-        case 2:controller.multiplication(
-            num1: Int(controller.numOfSum),
-            num2: Int(controller.recordNumber))
-        case 3:controller.division(
-            num1: Int(controller.numOfSum),
-            num2: Int(controller.recordNumber))
-        case 4:controller.equal(num1: Int(controller.recordNumber))
-        default:
-            numOfLabel = String(Int(controller.recordNumber))
-        }
         
+        controller.cal(result: procceeding, opRecord: opCodeRecordArray)
+        
+        changeDisplayOfLabel(number: controller.numOfSum)
     }
     
-    func changeDisplayOfLabel(number: Int){
+        
+    func changeDisplayOfResult(text: String){
+        procceeding = (procceeding == "0") ?
+            text :
+            procceeding + text
+    }
+    
+    func changeDisplayOfLabel(number: Double){
         if(controller.reset == true){
             controller.reset = false
             numOfLabel = "0"
@@ -81,12 +118,26 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func clear(_ sender: UIButton) {
-        opCodeRecord = 4
+    @IBAction func AC(_ sender: UIButton) {
+        resetCal()
+    }
+    
+    func resetCal(){
+        clearStorages()
+    }
+    
+    func clearDisplay(){
+        controller.reset = true
+        changeDisplayOfResult(text: "")
+        changeDisplayOfLabel(number: 0)
+    }
+    
+    func clearStorages(){
         pin = 0
-        numOfLabel =  "0"
+        opCodeRecord = 4
         controller.numOfSum = 0
         controller.recordNumber = 0
+        opCodeRecordArray = [String]()
     }
 }
 
