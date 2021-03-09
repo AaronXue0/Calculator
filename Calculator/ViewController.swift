@@ -11,23 +11,23 @@ import UIKit
 class ViewController: UIViewController {
     
     lazy var controller = Calculator()
-    
+        
     var pin = 0
     var opCodeRecord = 4
     var opCodeRecordArray = [String]()
     
-    @IBOutlet weak var outlet: UILabel!
-    @IBOutlet weak var calculatorResult: UILabel!
+    @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var processDisplay: UILabel!
     
-    var numOfLabel = "0" {
+    var displayValue = "0" {
         didSet {
-            outlet.text = "\(numOfLabel)"
+            display.text = "\(displayValue)"
         }
     }
     
-    var procceeding = "" {
+    var processValue = "" {
         didSet {
-            calculatorResult.text = "\(procceeding)"
+            processDisplay.text = "\(processValue)"
         }
     }
     
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         pin = 0
         
         if let txtNumber = numButtons.firstIndex(of: sender){
-            changeDisplayOfResult(text: String(txtNumber))
+            displayProcess(value: String(txtNumber))
         }
     }
     
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
             return
         }
         
-        procceeding = procceeding + "."
+        processValue = processValue + "."
         
         pin = 2
     }
@@ -59,31 +59,33 @@ class ViewController: UIViewController {
     @IBOutlet var opeatorButton: [UIButton]!
     
     @IBAction func touchOperator(_ sender: UIButton) {
+        if(processValue == "") {
+            return
+        }
+        
         controller.reset = true
-        controller.recordNumber = Double(Int(numOfLabel)!)
+        controller.recordNumber = Double(Int(displayValue)!)
         if let opCode = opeatorButton.firstIndex(of: sender){
             opCodeRecord = opCode
             
             if(opCodeRecord != 4 && pin == 1){
-                procceeding.removeLast()
+                processValue.removeLast()
             }
             pin = 1
             switch opCodeRecord {
             case 0:
                 opCodeRecordArray.append("+")
-                procceeding = procceeding + "+"
+                processValue = processValue + "+"
             case 1:
                 opCodeRecordArray.append("-")
-                procceeding = procceeding + "-"
+                processValue = processValue + "-"
             case 2:
                 opCodeRecordArray.append("*")
-                procceeding = procceeding + "*"
+                processValue = processValue + "*"
             case 3:
                 opCodeRecordArray.append("/")
-                procceeding = procceeding + "/"
+                processValue = processValue + "/"
             case 4:
-                opCodeRecord = -1
-                procceeding = procceeding + "="
                 calculate()
             default:
                 return;
@@ -92,28 +94,36 @@ class ViewController: UIViewController {
     }
 
     func calculate(){
-        
-        controller.cal(result: procceeding, opRecord: opCodeRecordArray)
-        
-        changeDisplayOfLabel(number: controller.numOfSum)
+        controller.cal(result: processValue, opRecord: opCodeRecordArray)
+        displayResult(number: controller.numOfSum)
+        opCodeRecord = -1
     }
     
         
-    func changeDisplayOfResult(text: String){
-        procceeding = (procceeding == "0") ?
-            text :
-            procceeding + text
+    func displayProcess(value: String){
+        if(value == ""){
+            processValue = ""
+        }
+        else {
+            processValue = (processValue == "0") ? value : processValue + value
+        }
+        
     }
     
-    func changeDisplayOfLabel(number: Double){
+    func displayResult(number: Double){
+        print(number)
         if(controller.reset == true){
             controller.reset = false
-            numOfLabel = "0"
+            displayValue = "0"
         }
-        if(numOfLabel == "0"){
-            numOfLabel = String(number)
+        if(displayValue == "0"){
+            if(floor(number) == number){
+                displayValue = String(Int(number))
+            } else {
+                displayValue = String(number)
+            }
         }else{
-            numOfLabel += String(number)
+            displayValue += String(number)
         }
     }
     
@@ -124,12 +134,13 @@ class ViewController: UIViewController {
     
     func resetCal(){
         clearStorages()
+        clearDisplay()
     }
     
     func clearDisplay(){
         controller.reset = true
-        changeDisplayOfResult(text: "")
-        changeDisplayOfLabel(number: 0)
+        displayProcess(value: "")
+        displayResult(number: 0)
     }
     
     func clearStorages(){

@@ -15,9 +15,18 @@ struct Calculator{
     
     mutating func cal(result: String, opRecord: [String])
     {
-        print(opRecord)
-        var array = result.components(separatedBy: ["*","/","+","-","="])
-        array.removeLast()
+        let opCodes : [String]! = ["*","/","+","-","="]
+        var newResult = result
+        
+        if(opCodes.contains(String(newResult.suffix(1)))) {
+            newResult.removeLast()
+        }
+        
+        if(opCodes.contains(String(newResult.prefix(1)))){
+            newResult.removeFirst()
+        }
+        
+        var array = newResult.components(separatedBy: ["*","/","+","-","="])
         
         var op = opRecord
         

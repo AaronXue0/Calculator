@@ -281,8 +281,8 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca5-o3-KRG">
-                                <rect key="frame" x="0.0" y="24" width="414" height="254"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="headTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca5-o3-KRG">
+                                <rect key="frame" x="0.0" y="129" width="414" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -294,8 +294,8 @@
                         <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="calculatorResult" destination="ca5-o3-KRG" id="3gH-Km-rZf"/>
-                        <outlet property="outlet" destination="B7g-GK-9ch" id="qfG-a1-QET"/>
+                        <outlet property="display" destination="B7g-GK-9ch" id="qfG-a1-QET"/>
+                        <outlet property="processDisplay" destination="ca5-o3-KRG" id="3gH-Km-rZf"/>
                         <outletCollection property="numButtons" destination="y1Z-5x-a85" collectionClass="NSMutableArray" id="XBz-GO-zs0"/>
                         <outletCollection property="numButtons" destination="TkK-B5-k2z" collectionClass="NSMutableArray" id="5yi-7K-cab"/>
                         <outletCollection property="numButtons" destination="gbH-Ib-R7o" collectionClass="NSMutableArray" id="BQ0-Bs-fMo"/>
