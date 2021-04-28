@@ -15,6 +15,10 @@ struct Calculator{
     
     mutating func cal(result: String, opRecord: [String])
     {
+        if(opRecord.count == 0){
+            numOfSum = Double(result)!
+        }
+        
         let opCodes : [String]! = ["*","/","+","-","="]
         var newResult = result
         
@@ -33,6 +37,7 @@ struct Calculator{
         while(true){
             var suc = 0
             for (index,item) in op.enumerated() {
+                print(array, op)
                 if(item == "+" || item == "-") {
                     continue
                 }
@@ -58,30 +63,30 @@ struct Calculator{
         
         while(true){
             var suc = 0
-        for (index,item) in op.enumerated() {
-            print(array)
-            if(item == "*" || item == "/") {
-                continue
+            for (index,item) in op.enumerated() {
+                print(array)
+                if(item == "*" || item == "/") {
+                    continue
+                }
+                switch item {
+                case "+":
+                    addition(num1: Double(array[index])!, num2: Double(array[index+1])!)
+                case "-":
+                     subtraction(num1: Double(array[index])!, num2: Double(array[index+1])!)
+                default:
+                    continue
+                }
+                
+                array[index] = String(numOfSum)
+                array.remove(at: index+1)
+                op.remove(at: index)
+                suc += 1
+                break
             }
-            switch item {
-            case "+":
-                addition(num1: Double(array[index])!, num2: Double(array[index+1])!)
-            case "-":
-                 subtraction(num1: Double(array[index])!, num2: Double(array[index+1])!)
-            default:
-                continue
+            if(suc == 0) {
+                break
             }
-            
-            array[index] = String(numOfSum)
-            array.remove(at: index+1)
-            op.remove(at: index)
-            suc += 1
-            break
         }
-        if(suc == 0) {
-            break
-        }
-    }
     
     }
     

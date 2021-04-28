@@ -11,13 +11,14 @@ import UIKit
 class ViewController: UIViewController {
     
     lazy var controller = Calculator()
-        
+    
     var pin = 0
     var opCodeRecord = 4
     var opCodeRecordArray = [String]()
     
     @IBOutlet weak var display: UILabel!
     @IBOutlet weak var processDisplay: UILabel!
+    @IBOutlet weak var acButton: UIButton!
     
     var displayValue = "0" {
         didSet {
@@ -28,11 +29,16 @@ class ViewController: UIViewController {
     var processValue = "" {
         didSet {
             processDisplay.text = "\(processValue)"
+            if(processValue == ""){
+                acButton.setTitle("AC", for: .normal)
+            }else {
+                acButton.setTitle("C", for: .normal)
+            }
         }
     }
     
     @IBOutlet var numButtons: [UIButton]!
-
+    
     @IBAction func touchNum(_ sender: UIButton) {
         if(opCodeRecord == -1){
             opCodeRecord = 4
@@ -62,6 +68,9 @@ class ViewController: UIViewController {
         if(processValue == "") {
             return
         }
+        if(opCodeRecord == -1){
+            return
+        }
         
         controller.reset = true
         controller.recordNumber = Double(Int(displayValue)!)
@@ -69,6 +78,7 @@ class ViewController: UIViewController {
             opCodeRecord = opCode
             
             if(opCodeRecord != 4 && pin == 1){
+                opCodeRecordArray.removeLast()
                 processValue.removeLast()
             }
             pin = 1
@@ -92,14 +102,14 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
     func calculate(){
         controller.cal(result: processValue, opRecord: opCodeRecordArray)
         displayResult(number: controller.numOfSum)
         opCodeRecord = -1
     }
     
-        
+    
     func displayProcess(value: String){
         if(value == ""){
             processValue = ""
